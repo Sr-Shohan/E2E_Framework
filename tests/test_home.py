@@ -8,7 +8,7 @@ def test_google_search(browser):
     home_page.load()
 
     # Search for a query
-    home_page.search_for("Selenium with Python")
+    home_page.search_for("Chat GPT")
 
     # Verify that the search results page title contains the query
-    assert "Selenium with Python" in browser.title
+    assert "Chat GPT" in browser.title
