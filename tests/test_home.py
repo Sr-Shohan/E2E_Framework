@@ -1,14 +1,14 @@
-from pages.home.home import GoogleHomePage
-from selenium import webdriver
+import time
+
+from pages.login import GoogleHomePage
+
 def test_google_search(driver):
-    # Create a new instance of the Google home page
-    home_page = GoogleHomePage(driver)
-
-    # Load the Google home page
-    home_page.load()
-
-    # Search for a query
-    home_page.search_for("Chat GPT")
-
-    # Verify that the search results page title contains the query
-    assert "Chat GPT" in driver.title
+    # Create a new instance of the login page
+    login_page = GoogleHomePage(driver)
+    # Load the login page
+    login_page.load()
+    # Provide login information
+    login_page.provide_login_info("standard_user", "secret_sauce")
+    # Verify that the user has successfully logged in
+    assert "https://www.saucedemo.com/inventory.html" in driver.current_url
+    time.sleep(5)

@@ -7,10 +7,11 @@ import pytest
 def driver():
     # Set up the ChromeOptions object for headless browsing
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    #chrome_options.add_argument('--headless')
 
     # Initialize the WebDriver instance with the ChromeOptions object
     driver = webdriver.Chrome(options=chrome_options)
+    driver.maximize_window()
 
     # Return the WebDriver instance for use in the tests
     yield driver
