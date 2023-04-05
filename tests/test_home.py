@@ -1,8 +1,8 @@
 from pages.home.home import GoogleHomePage
 from selenium import webdriver
-def test_google_search(browser):
+def test_google_search(driver):
     # Create a new instance of the Google home page
-    home_page = GoogleHomePage(browser)
+    home_page = GoogleHomePage(driver)
 
     # Load the Google home page
     home_page.load()
@@ -11,4 +11,4 @@ def test_google_search(browser):
     home_page.search_for("Chat GPT")
 
     # Verify that the search results page title contains the query
-    assert "Chat GPT" in browser.title
+    assert "Chat GPT" in driver.title
