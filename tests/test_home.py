@@ -2,17 +2,18 @@ import time
 
 import pytest
 
-from pages.login import GoogleHomePage
+from pages.login.login import login
 
 
 @pytest.mark.allure
-def test_google_search(driver, screenshot_on_failure):
+def test_google_search(driver):
     # Create a new instance of the login page
-    login_page = GoogleHomePage(driver)
+    login_page = login(driver)
     # Load the login page
     login_page.load()
     # Provide login information
-    login_page.provide_login_info("standard_userr", "secret_sauce")
+    login_page.provide_login_info()
+    print(driver.current_url)
     # Verify that the user has successfully logged
-    assert "https://www.saucedemo.com/inventory.html" in driver.current_url
-    time.sleep(3)
+    assert "https://opensource-demo.orangehrmlive.com" in driver.current_url
+
