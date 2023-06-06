@@ -26,13 +26,3 @@ def allure_report(request):
     subprocess.call(cmd, shell=True)
     attach("Allure Report", open(f"{request.config.rootdir}/allure-report/index.html", "rb").read(),
            AttachmentType.HTML)
-
-
-# @pytest.fixture
-# def screenshot_on_failure(request, driver):
-#     yield
-#     if request.node.rep_call.failed:
-#         # Take a screenshot of the current browser window
-#         screenshot = driver.get_screenshot_as_png()
-#         # Attach the screenshot to the Allure report
-#         attach(screenshot, name="Screenshot", attachment_type=AttachmentType.PNG)
